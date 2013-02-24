@@ -9,6 +9,7 @@ import json
 import yaml
 import logging
 import sys
+import os
 
 logging.basicConfig(
     stream=sys.stdout,
@@ -63,4 +64,5 @@ def not_found(error):
 if __name__ == '__main__':
     config = yaml.load(open('config.yaml'))
     web_config = config.get('web')
-    app.run(host=web_config['host'], port=int(web_config['port']))
+    port = int(os.environ.get('PORT', int(web_config['port'])))
+    app.run(host=web_config['host'], port=port)
