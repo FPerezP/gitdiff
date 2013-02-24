@@ -1,0 +1,1 @@
+Accepts github PUSH requests with information about commits beeing pushed to repository and sends emails with diffs.
