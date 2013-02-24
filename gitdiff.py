@@ -63,4 +63,4 @@ def not_found(error):
 if __name__ == '__main__':
     config = yaml.load(open('config.yaml'))
     web_config = config.get('web')
-    app.run(host=web_config['host'], port=int(web_config['port']), debug=True)
+    app.run(host=web_config['host'], port=int(web_config['port']))
