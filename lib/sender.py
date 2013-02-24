@@ -1,4 +1,3 @@
-import subprocess
 import smtplib
 from email.mime.text import MIMEText
 import yaml
@@ -17,16 +16,9 @@ class Sender():
         body = ''
         for commit in self.commitList:
             diff = commit.getDiff()
-            if not diff: continue
-
-            # todo: use highlight instead of subprocess
-            cmd = subprocess.Popen("pygmentize -f html -O noclasses=True -l diff",
-                                   stdin=subprocess.PIPE,
-                                   stdout=subprocess.PIPE,
-                                   shell=True)
-
-            html = cmd.communicate(input=diff)[0]
-            body += html + '<br /><br />'
+            if not diff:
+                continue
+            body += str(commit)
         return body
 
     def send(self, template):

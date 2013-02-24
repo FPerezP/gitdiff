@@ -12,7 +12,7 @@ import sys
 
 logging.basicConfig(
     stream=sys.stdout,
-    level=logging.DEBUG,
+    level=logging.INFO,
     format='"%(asctime)s %(levelname)8s %(name)s - %(message)s"',
     datefmt='%H:%M:%S'
 )
@@ -42,7 +42,6 @@ def process_github_push():
         if not 'payload' in request.form:
             raise ValueError
 
-        logging.info('hello log')
         commitList = parse_request(request.form['payload'])
         sender = Sender(commitList)
 
