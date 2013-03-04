@@ -13,7 +13,7 @@ git clone git://github.com/kalimatas/gitdiff.git
 
 # make a virtual environment and activate it
 virtualenv --distribute --system-site-packages venv
-source venv/bin/active
+source venv/bin/activate
 
 # install requirements
 pip install -r requirements.txt
